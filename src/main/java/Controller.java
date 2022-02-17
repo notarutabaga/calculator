@@ -1,12 +1,10 @@
 import com.jfoenix.controls.JFXButton;
-import javafx.event.ActionEvent;
 import javafx.scene.control.TextField;
 
-import javax.lang.model.type.NullType;
-import java.security.spec.RSAOtherPrimeInfo;
-
 public class Controller {
+    public TextField termsField;
     public TextField textField;
+
     public JFXButton numButton7;
     public JFXButton numButton8;
     public JFXButton numButton9;
@@ -16,25 +14,22 @@ public class Controller {
     public JFXButton numButton1;
     public JFXButton numButton2;
     public JFXButton numButton3;
+    public JFXButton numButton0;
+
     public JFXButton multButton;
     public JFXButton subtButton;
     public JFXButton addButton;
     public JFXButton diviButton;
-    public JFXButton signButton;
-    public JFXButton numButton0;
-    public JFXButton deciButton;
     public JFXButton equalButton;
+
+    public JFXButton signButton;
+    public JFXButton deciButton;
     public JFXButton clearEntryButton;
+    public JFXButton clearButton;
 
     public double firstTerm;
     public char function;
     public double result;
-    public TextField termsField;
-    public JFXButton clearButton;
-
-    public void initialize() {
-        System.out.println(firstTerm);
-    }
 
     public void pressed7() {
         numButtonPressed("7");
@@ -92,6 +87,11 @@ public class Controller {
         textField.clear();
     }
 
+    public void clearAll() {
+        termsField.clear();
+        textField.clear();
+    }
+
     public void changeSign() {
         if (!textField.getText().isEmpty()) {
             String input = textField.getText();
@@ -108,7 +108,7 @@ public class Controller {
     }
 
     public void deciButtonPressed() {
-        String input = "";
+        String input;
         if (textField.getText().isEmpty()) {
             input = "0.";
             textField.setText(input);
@@ -130,37 +130,24 @@ public class Controller {
         } else {
             firstTerm = Double.parseDouble(textField.getText());
         }
-        System.out.println(firstTerm);
+        System.out.println("getFirstTerm: " + firstTerm);
     }
 
     public void multPressed() {
         getFirstTerm();
 
+        termsField.setText(firstTerm + " x");
+        System.out.println(firstTerm + " x");
+
         function = 'x';
-
-        int intTest = (int)firstTerm;
-        System.out.println(intTest);
-
-        if (firstTerm == intTest) {
-            termsField.setText(String.valueOf(intTest) + " x");
-        } else {
-            termsField.setText(String.valueOf(firstTerm) + " x");
-        }
-
         textField.clear();
     }
 
     public void subtPressed() {
         getFirstTerm();
 
-        int intTest = (int)firstTerm;
-        System.out.println(intTest);
-
-        if (firstTerm == intTest) {
-            termsField.setText(String.valueOf(intTest) + " -");
-        } else {
-            termsField.setText(String.valueOf(firstTerm) + " -");
-        }
+        termsField.setText(firstTerm + " -");
+        System.out.println(firstTerm + " -");
 
         function = '-';
         textField.clear();
@@ -169,14 +156,8 @@ public class Controller {
     public void addPressed() {
         getFirstTerm();
 
-        int intTest = (int)firstTerm;
-        System.out.println(intTest);
-
-        if (firstTerm == intTest) {
-            termsField.setText(String.valueOf(intTest) + " +");
-        } else {
-            termsField.setText(String.valueOf(firstTerm) + " +");
-        }
+        termsField.setText(firstTerm + " +");
+        System.out.println(firstTerm + " +");
 
         function = '+';
         textField.clear();
@@ -185,14 +166,8 @@ public class Controller {
     public void diviPressed() {
         getFirstTerm();
 
-        int intTest = (int)firstTerm;
-        System.out.println(intTest);
-
-        if (firstTerm == intTest) {
-            termsField.setText(String.valueOf(intTest) + " /");
-        } else {
-            termsField.setText(String.valueOf(firstTerm) + " /");
-        }
+        termsField.setText(firstTerm + " /");
+        System.out.println(firstTerm + " /");
 
         function = '/';
         textField.clear();
@@ -201,119 +176,44 @@ public class Controller {
     public void equalsPressed() {
         String inputString = textField.getText();
         double inputDouble = Double.parseDouble(inputString);
-        int resIntTest;
         String terms;
-        int firstIntTest = (int) firstTerm;
-        int inputIntTest = (int) inputDouble;
 
         if (function == '+') {
             result = firstTerm + inputDouble;
 
-            if (firstIntTest == firstTerm) {
-                terms = String.valueOf(firstIntTest);
-            } else {
-                terms = String.valueOf(firstTerm);
-            }
-
-            terms = terms.concat(" + ");
-
-            if (inputIntTest == inputDouble) {
-                terms = terms.concat(String.valueOf(inputIntTest));
-            } else {
-                terms = terms.concat(String.valueOf(inputDouble));
-            }
-
+            terms = firstTerm + " + " + inputDouble + " =";
             termsField.setText(terms);
+            System.out.println("terms: " + terms);
 
-            resIntTest = (int) result;
-            if (resIntTest == result) {
-                textField.setText(String.valueOf(resIntTest));
-            } else {
-                textField.setText(String.valueOf(result));
-            }
-            System.out.println(result);
+            textField.setText(String.valueOf(result));
+            System.out.println("result: " + result);
         } else if (function == '-') {
             result = firstTerm - inputDouble;
 
-            if (firstIntTest == firstTerm) {
-                terms = String.valueOf(firstIntTest);
-            } else {
-                terms = String.valueOf(firstTerm);
-            }
-
-            terms = terms.concat(" - ");
-
-            if (inputIntTest == inputDouble) {
-                terms = terms.concat(String.valueOf(inputIntTest));
-            } else {
-                terms = terms.concat(String.valueOf(inputDouble));
-            }
-
+            terms = firstTerm + " - " + inputDouble + " =";
             termsField.setText(terms);
+            System.out.println("terms: " + terms);
 
-            resIntTest = (int) result;
-            if (resIntTest == result) {
-                textField.setText(String.valueOf(resIntTest));
-            } else {
-                textField.setText(String.valueOf(result));
-            }
-            System.out.println(result);
+            textField.setText(String.valueOf(result));
+            System.out.println("result: " + result);
         } else if (function == 'x') {
             result = firstTerm * inputDouble;
 
-            if (firstIntTest == firstTerm) {
-                terms = String.valueOf(firstIntTest);
-            } else {
-                terms = String.valueOf(firstTerm);
-            }
-
-            terms = terms.concat(" x ");
-
-            if (inputIntTest == inputDouble) {
-                terms = terms.concat(String.valueOf(inputIntTest));
-            } else {
-                terms = terms.concat(String.valueOf(inputDouble));
-            }
-
+            terms = firstTerm + " x " + inputDouble + " =";
             termsField.setText(terms);
+            System.out.println("terms: " + terms);
 
-            resIntTest = (int) result;
-            if (resIntTest == result) {
-                textField.setText(String.valueOf(resIntTest));
-            } else {
-                textField.setText(String.valueOf(result));
-            }
-            System.out.println(result);
+            textField.setText(String.valueOf(result));
+            System.out.println("result: " + result);
         } else if (function == '/') {
             result = firstTerm / inputDouble;
-            if (firstIntTest == firstTerm) {
-                terms = String.valueOf(firstIntTest);
-            } else {
-                terms = String.valueOf(firstTerm);
-            }
 
-            terms = terms.concat(" / ");
-
-            if (inputIntTest == inputDouble) {
-                terms = terms.concat(String.valueOf(inputIntTest));
-            } else {
-                terms = terms.concat(String.valueOf(inputDouble));
-            }
-
+            terms = firstTerm + " / " + inputDouble + " =";
             termsField.setText(terms);
+            System.out.println("terms: " + terms);
 
-            resIntTest = (int) result;
-            if (resIntTest == result) {
-                textField.setText(String.valueOf(resIntTest));
-            } else {
-                textField.setText(String.valueOf(result));
-            }
-            System.out.println(result);
+            textField.setText(String.valueOf(result));
+            System.out.println("result: " + result);
         }
-    }
-
-    public void clearAll() {
-        termsField.clear();
-        textField.clear();
     }
 }
