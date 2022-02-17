@@ -7,7 +7,7 @@
 
 <AnchorPane prefHeight="504.0" prefWidth="333.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
    <children>
-      <JFXButton focusTraversable="false" layoutX="281.0" layoutY="1.0" style="-fx-background-color: #ffafcc;" text="history" />
+      <JFXButton focusTraversable="false" layoutX="281.0" layoutY="1.0" prefHeight="29.0" prefWidth="52.0" style="-fx-background-color: #ff96bc;" text="history" />
       <TextField fx:id="textField" alignment="CENTER_RIGHT" focusTraversable="false" layoutY="31.0" prefHeight="84.0" prefWidth="333.0">
          <font>
             <Font size="36.0" />
@@ -48,23 +48,23 @@
          <font>
             <Font size="20.0" />
          </font></JFXButton>
-      <JFXButton fx:id="multButton" focusTraversable="false" layoutX="241.0" layoutY="193.0" prefHeight="45.0" prefWidth="70.0" style="-fx-background-color: #ffafcc;" text="x">
+      <JFXButton fx:id="multButton" focusTraversable="false" layoutX="241.0" layoutY="193.0" prefHeight="45.0" prefWidth="70.0" style="-fx-background-color: #ffc9dc;" text="x">
          <font>
             <Font size="20.0" />
          </font></JFXButton>
-      <JFXButton fx:id="subtButton" focusTraversable="false" layoutX="241.0" layoutY="239.0" prefHeight="45.0" prefWidth="70.0" style="-fx-background-color: #ffafcc;" text="-">
+      <JFXButton fx:id="subtButton" focusTraversable="false" layoutX="241.0" layoutY="239.0" prefHeight="45.0" prefWidth="70.0" style="-fx-background-color: #ffc9dc;" text="-">
          <font>
             <Font size="20.0" />
          </font></JFXButton>
-      <JFXButton fx:id="addButton" focusTraversable="false" layoutX="241.0" layoutY="285.0" prefHeight="45.0" prefWidth="70.0" style="-fx-background-color: #ffafcc;" text="+">
+      <JFXButton fx:id="addButton" focusTraversable="false" layoutX="241.0" layoutY="285.0" prefHeight="45.0" prefWidth="70.0" style="-fx-background-color: #ffc9dc;" text="+">
          <font>
             <Font size="20.0" />
          </font></JFXButton>
-      <JFXButton fx:id="diviButton" focusTraversable="false" layoutX="241.0" layoutY="147.0" prefHeight="45.0" prefWidth="70.0" style="-fx-background-color: #ffafcc;" text="/">
+      <JFXButton fx:id="diviButton" focusTraversable="false" layoutX="241.0" layoutY="147.0" prefHeight="45.0" prefWidth="70.0" style="-fx-background-color: #ffc9dc;" text="/">
          <font>
             <Font size="20.0" />
          </font></JFXButton>
-      <JFXButton fx:id="signButton" focusTraversable="false" layoutX="26.0" layoutY="331.0" prefHeight="45.0" prefWidth="70.0" style="-fx-background-color: #ffafcc;" text="+-">
+      <JFXButton fx:id="signButton" focusTraversable="false" layoutX="26.0" layoutY="331.0" onAction="#changeSign" prefHeight="45.0" prefWidth="70.0" style="-fx-background-color: #ffc9dc;" text="+-">
          <font>
             <Font size="20.0" />
          </font></JFXButton>
@@ -72,15 +72,15 @@
          <font>
             <Font size="20.0" />
          </font></JFXButton>
-      <JFXButton fx:id="deciButton" focusTraversable="false" layoutX="168.0" layoutY="331.0" prefHeight="45.0" prefWidth="70.0" style="-fx-background-color: #ffafcc;" text=".">
+      <JFXButton fx:id="deciButton" focusTraversable="false" layoutX="168.0" layoutY="331.0" onAction="#deciButtonPressed" prefHeight="45.0" prefWidth="70.0" style="-fx-background-color: #ffc9dc;" text=".">
          <font>
             <Font size="20.0" />
          </font></JFXButton>
-      <JFXButton fx:id="equalButton" focusTraversable="false" layoutX="241.0" layoutY="331.0" prefHeight="45.0" prefWidth="70.0" style="-fx-background-color: #ffafcc;" text="=">
+      <JFXButton fx:id="equalButton" focusTraversable="false" layoutX="241.0" layoutY="331.0" prefHeight="45.0" prefWidth="70.0" style="-fx-background-color: #ff96bc;" text="=">
          <font>
             <Font size="20.0" />
          </font></JFXButton>
-      <JFXButton fx:id="clearButton" focusTraversable="false" layoutX="168.0" layoutY="147.0" onAction="#clearField" prefHeight="45.0" prefWidth="70.0" style="-fx-background-color: #ffafcc;" text="C">
+      <JFXButton fx:id="clearButton" focusTraversable="false" layoutX="168.0" layoutY="147.0" onAction="#clearField" prefHeight="45.0" prefWidth="70.0" style="-fx-background-color: #ff96bc;" text="C">
          <font>
             <Font size="20.0" />
          </font>

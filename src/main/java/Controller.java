@@ -68,18 +68,46 @@ public class Controller {
             textField.setText(digit);
             System.out.println(digit);
         } else {
-            String number = textField.getText();
-            number = number.concat(digit);
-            textField.setText(number);
-            System.out.println(number);
+            String input = textField.getText();
+            input = input.concat(digit);
+            textField.setText(input);
+            System.out.println(input);
         }
     }
 
     public void clearField() {
         textField.clear();
     }
-    // on number button press
-        // each button has a method that passes the button
-            // get the text in the textfield
-            // concat the number and set text
+
+    public void changeSign() {
+        if (!textField.getText().isEmpty()) {
+            String input = textField.getText();
+
+            if (input.startsWith("-")) {
+                input = input.substring(1);
+            } else {
+                input = "-" + input;
+            }
+
+            System.out.println(input);
+            textField.setText(input);
+        }
+    }
+
+    public void deciButtonPressed() {
+        String input = "";
+        if (textField.getText().isEmpty()) {
+            input = "0.";
+            textField.setText(input);
+            System.out.println(input);
+        } else {
+            input = textField.getText();
+
+            if (!input.contains(".")) {
+                input = input.concat(".");
+                textField.setText(input);
+                System.out.println(input);
+            }
+        }
+    }
 }
